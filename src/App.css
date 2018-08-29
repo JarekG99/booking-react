@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+}
+
+.Header-bottom  {
+    background-color: #002F75;
+    min-height: 60px;
+    width: 100%;
+
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+.options {
+ padding-left: 7em;
+
+  max-height: 40px;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: 16px;
+}
+
+.button1 {
+  width: 4.5em;
+  height: 1.5em;
+  font-size: 1em;
+  margin: 0 30px;
+  text-align: center;
+  
+  border-radius: 6px;
+}

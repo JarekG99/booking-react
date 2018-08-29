@@ -1,0 +1,87 @@
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40px;
+}
+
+.App-header {
+  background-color: #002F75;
+  height: 60px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.Header-top  {
+  width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.Header-title {
+  width: 15vw;
+  max-height: 40px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header-options {
+  width: 25vw;
+  max-height: 40px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 16px;
+}
+.flag-select {
+  padding-bottom: 10px;
+}
+
+.flag-select .arrow-down {
+  color: white;
+  padding-left: 8px;
+
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+.Dropdown-option, .Dropdown-placeholder {
+  font-size: .9em;
+}
+.button, .Dropdown-root {
+  width: 5em;
+  height: 2.0em;
+  font-size: 1em;
+  text-align: center;
+  margin: 0;
+
+}
+.flag-select .selected-flag-option {
+  padding: 0;
+
+}
+
+@media screen and (max-width: 1300px) {
+ .Header-top, .Header-bottom {
+	max-width: 90vw;
+  }
+  .Header-options {
+    width: 30vw;
+  }
+}

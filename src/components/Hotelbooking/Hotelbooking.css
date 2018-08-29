@@ -1,0 +1,121 @@
+.option {
+ padding-left: 6em;
+  height: 50px;
+  margin: 40px auto;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  font-size: 18px;
+}
+.city {
+  width: 25%;
+  border: 3px solid #FEB208;
+}
+
+.dates {
+  width: 25%;
+  min-height: 38px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  border: 3px solid #FEB208;
+}
+
+.rooms {
+  min-width: 35%;
+  min-height: 38px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  border: 3px solid #FEB208;
+}
+.calendar {
+  height: 30px;
+  margin-left: 10px;
+}
+
+.user {
+  height: 25px;
+  padding-left: 8px;
+  padding-right:15px
+}
+
+.datepicker {
+  font-size: 15px;
+  margin: 0;
+  max-width: 100%;
+  border-style: none;
+  width: 5.5em;
+}
+.center {
+  margin: auto;
+}
+.roomoptions {
+  border-style: none;
+}
+.room-occ {
+  padding-left: 10px;
+  display: flex;
+  flex-flow: row;
+  align-content: stretch;
+}
+.Dropdown-control {
+  border-style: none;
+  padding-top: 12px;
+ }
+.main {
+  margin-left: 6em;
+  display: flex;
+  flex-flow: row;
+}
+.main-left {
+  width: 30%;
+  display: flex;
+  flex-flow: column nowrap;
+
+}
+.map {
+  margin: 20px 0;
+  min-height: 200px;
+  border: 1px solid grey;
+}
+.filters {
+    border: 1px solid #006CC5;
+}
+.filters-title {
+  background-color: #006CC5;
+  height: 20px;
+  color: #fff;
+  font-size: 20px;
+  margin: auto 0;
+  padding: 15px;
+  text-align: left;
+
+
+}
+
+.filter-options {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px;
+  text-align: left;
+  background-color:  #ededed;
+}
+
+.checkbox {
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 15px;
+  font-weight: normal;
+  margin: 20px;
+  color: #4B97D6;
+
+}
