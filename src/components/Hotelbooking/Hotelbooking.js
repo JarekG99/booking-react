@@ -2,7 +2,10 @@ import React from 'react';
 import Select from 'react-select';
 import { Calendar1, Calendar2 } from './Datepicker';
 import Dropdown from 'react-dropdown';
+import Geocode from "react-geocode";
+
 import Map from './Map';
+import MapContainer from './MapContainer';
 import Filterprice from '../Filters/Filterprice';
 import Filterstars from '../Filters/Filterstars';
 import Filterother from '../Filters/Filterother';
@@ -20,7 +23,9 @@ import './Hotelbooking.css';
 //   someProp: elementType,
 // };
 
+
 const options = [
+  { value: '', label:'Select', hotels: ['','','','','']},
   { value: 'warsaw', label:'Warsaw',
     hotels: [{name:"Europejski", description: "description"}, {name:"Bristol", description: "description"}, {name:"Novotel", description: "description", description: "description"}, {name:"Ibis", description: "description"}, {name:"Sheraton", description: "description"}] },
   { value: 'berlin', label: 'Berlin',
@@ -47,31 +52,70 @@ const roomoptions = [
 const defaultAdultsoption = roomoptions[2];
 const defaultRoomoption = roomoptions[1];
 const defaultChildrenoption = roomoptions[0];
+const google = window.google;
+ // var geocoder = new google.maps.Geocoder();
+
+function getPosition(a) {
+   var place = a.label  +' '+  a.hotels[0].name + ' hotel';
+   console.log(place);
+  // Geocode.setApiKey('AIzaSyCyFh6eKr4p8mbU3_q44e6rK7z1ei4B9TU');
+   // Geocode.enableDebug();
+   Geocode.fromAddress("place").then(
+     response => {
+          const { lat, lng } = response.results[0].geometry.location;
+          console.log(lat, lng);
+      },
+       error => {
+          console.error('Geocoder failed due to: ' + error);
+        }
+     );
+
+}
+//  geocoder.geocode({'address': place}, function(results, status) {
+//          if (status === 'OK') {
+//            // Map.setZoom(11);
+//            Map.setCenter(results[0].geometry.location);
+//            var marker = new google.maps.Marker({
+//              map: Map,
+//              position: results[0].geometry.location
+//            });
+//          } else {
+//            alert('Geocode was not successful for the following reason: ' + status);
+//          }
+//        });
+//
+// }
+
 
 
 export default class Hotelbooking extends React.Component {
   constructor(props) {
    super(props);
      this.state = {
-         selectedOption: options[5],
-      }
-      // this.selectedOption=this.selectedOption.bind(this);
+         selectedOption: options[0],
+
+      };
+
     }
 
+
   handleChange = (selectedOption) => {
-    this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
-    // console.log('Option:', selectedOption.hotels)
+    this.setState({selectedOption});
+    getPosition(selectedOption);
 
   }
+
   render() {
     const { selectedOption =[]} = this.state;
 
     return (
+              console.log( 'hotel:', selectedOption.hotels[0].name),
+
       <div className="app-main">
         <div className="option">
           <Select
             value={selectedOption}
+            id="address"
             className="city"
             onChange={this.handleChange}
             options={options}
@@ -100,11 +144,11 @@ export default class Hotelbooking extends React.Component {
           <div className="main">
             <div className="main-left">
               <div className="map">
-                <Map />
+                <Map center={this.props.center} />
               </div>
                 <div className="filters">
                   <div className="filters-title">
-                    <span>Filter by:</span>
+                    <span>Filter by:</span><i>(option not active)</i>
                   </div>
                     <div className="filter-options">
                       <span> Your price level:</span>
@@ -125,10 +169,12 @@ export default class Hotelbooking extends React.Component {
                 <div className="hotel-top-option"><span>Customer review</span></div>
                 <div className="hotel-top-option"><span>Stars</span></div>
               </div>
-              <HotelsList hotels={selectedOption.hotels}  />
+              <HotelsList hotels={selectedOption.hotels} Marker={this.props.Marker} />
             </div>
           </div>
         </div>
+
     );
+
   }
 }

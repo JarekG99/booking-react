@@ -26,7 +26,7 @@ export class Calendar1 extends React.Component {
         selected={this.state.date}
         onChange={this.handleChange}
         dateFormat="DD/MM/YYYY"
-        placeholderText="Arr. date"
+        placeholderText="Arrival"
         isClearable={false}
         monthsShown={2}
     />;
@@ -54,7 +54,7 @@ export class Calendar2 extends React.Component {
         selected={this.state.date}
         onChange={this.handleChange}
         dateFormat="DD/MM/YYYY"
-        placeholderText="Dep. date"
+        placeholderText="Departure"
         isClearable={false}
         monthsShown={2}
     />;

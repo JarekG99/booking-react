@@ -13,29 +13,41 @@ class App extends Component {
        showFlightbooking: false,
        showCarbooking: false
     };
-    this.handleClick = this.handleClick.bind(this);
+     this.handleClick = this.handleClick.bind(this);
   }
 
     handleClick = function() {
-     if(this.state.showHotelbooking) {
+      if(this.state.showHotelbooking) {
        this.setState({
          showHotelbooking: !this.state.showHotelbooking,
          showFlightbooking: !this.state.showFlightbooking,
+         // showHotelbooking: true,
+         // showFlightbooking: false,
+         // showCarbooking: false
         });
        }
-     if(this.state.showFlightbooking) {
+       // handleClick = (flight) => {
+      if(this.state.showFlightbooking) {
        this.setState({
          showFlightbooking: !this.state.showFlightbooking,
          showCarbooking: !this.state.showCarbooking,
+         // showHotelbooking: false,
+         // showFlightbooking: true,
+         // showCarbooking: false
         });
       }
-     if(this.state.showCarbooking) {
+      // handleClick= (car) => {
+      if(this.state.showCarbooking) {
          this.setState({
           showCarbooking: !this.state.showCarbooking,
           showHotelbooking: !this.state.showHotelbooking,
-      });
-   };
-}
+          // showHotelbooking: false,
+          // showFlightbooking: false,
+          // showCarbooking: true
+        });
+      }
+    }
+
 
   // selectOption(e) {
   //   this.setState ({ option: e.target.title })
@@ -48,10 +60,10 @@ class App extends Component {
       <div className="App">
         <Header />
 
-        <div className="Header-bottom options">
-          <button className="button1" onClick={() => this.handleClick('hotel')} name="hotel">Hotel</button>
-          <button className="button1" onClick={() => this.handleClick('flight')} name="flight">Flight</button>
-          <button className="button1" onClick={() => this.handleClick('car')} name="car">Car</button>
+        <div className="Header-bottom">
+          <button className="button1" name="hotel" onClick={() => this.handleClick('hotel')}>Hotel</button>
+          <button className="button1" name="flight" onClick={() => this.handleClick('flight')}>Flight</button>
+          <button className="button1" name="car" onClick={() => this.handleClick('car')}>Car</button>
         </div>
         <div>
           {this.state.showHotelbooking ? <Hotelbooking /> : null}
